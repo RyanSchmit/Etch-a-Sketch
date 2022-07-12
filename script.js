@@ -1,11 +1,22 @@
 const container = document.getElementById("container");
+const marker = document.getElementById("marker");
+const easer = document.getElementById("easer");
+let markerOn = true;
+
+easer.addEventListener('click', () => {
+	markerOn = false;
+})
+
+marker.addEventListener('click', () => {
+	markerOn = true;
+})
 
 function changeBackgroundColor() {
-	if (this.style.backgroundColor == "black") {
-		this.style.backgroundColor = "white";
+	if (markerOn) {
+		this.style.backgroundColor = "black";
 	}
 	else {
-		this.style.backgroundColor = "black";
+		this.style.backgroundColor = "white";
 	}
 }
 
@@ -17,7 +28,7 @@ for (let n = 0; n < 16; n++) {
 		let div = document.createElement("div");
 		div.classList.add('grid');
 		row.appendChild(div);
-		div.addEventListener('click', changeBackgroundColor)
+		div.addEventListener('mouseover', changeBackgroundColor)
 	}
 }
 
